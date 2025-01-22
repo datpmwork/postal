@@ -85,7 +85,7 @@ module SMTPClient
 
         it "starts the SMTP client the default HELO" do
           endpoint.start_smtp_session
-          expect(endpoint.smtp_client).to have_received(:start).with(Postal::Config.postal.smtp_hostname)
+          expect(endpoint.smtp_client).to have_received(:start).with(Postal::Config.postal.smtp_hostname, user: endpoint.server.user, secret: endpoint.server.secret)
         end
 
         context "when the SSL mode is Auto" do
@@ -153,7 +153,7 @@ module SMTPClient
 
         it "starts the SMTP client with the IP addresses hostname" do
           endpoint.start_smtp_session(source_ip_address: ip_address)
-          expect(endpoint.smtp_client).to have_received(:start).with(ip_address.hostname)
+          expect(endpoint.smtp_client).to have_received(:start).with(ip_address.hostname, user: endpoint.server.user, secret: endpoint.server.secret)
         end
       end
     end
