@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_11_205229) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_22_051449) do
   create_table "additional_route_endpoints", id: :integer, charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "route_id"
     t.string "endpoint_type"
@@ -264,6 +264,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_11_205229) do
     t.string "hostname"
     t.string "ssl_mode"
     t.integer "port"
+    t.string "user"
+    t.string "secret"
     t.text "error"
     t.datetime "disabled_until"
     t.datetime "last_used_at"

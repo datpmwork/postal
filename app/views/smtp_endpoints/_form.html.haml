@@ -13,6 +13,14 @@
       .fieldSet__input
         = f.text_field :port, :class => 'input input--text', :placeholder => "25 (by default)"
     .fieldSet__field
+      = f.label :user, :class => 'fieldSet__label'
+      .fieldSet__input
+        = f.text_field :user, :class => 'input input--text', :placeholder => "Username"
+    .fieldSet__field
+      = f.label :secret, :class => 'fieldSet__label'
+      .fieldSet__input
+        = f.text_field :secret, :class => 'input input--text', :placeholder => "Secret"
+    .fieldSet__field
       = f.label :ssl_mode, :class => 'fieldSet__label'
       .fieldSet__input
         = f.select :ssl_mode, SMTPEndpoint::SSL_MODES, {}, :class => 'input input--select'

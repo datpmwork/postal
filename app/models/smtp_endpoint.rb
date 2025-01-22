@@ -11,6 +11,8 @@
 #  hostname       :string(255)
 #  ssl_mode       :string(255)
 #  port           :integer
+#  user           :string(255)
+#  secret         :string(255)
 #  error          :text(65535)
 #  disabled_until :datetime
 #  last_used_at   :datetime
@@ -48,7 +50,7 @@ class SMTPEndpoint < ApplicationRecord
   end
 
   def to_smtp_client_server
-    SMTPClient::Server.new(hostname, port: port || 25, ssl_mode: ssl_mode)
+    SMTPClient::Server.new(hostname, port: port || 25, ssl_mode: ssl_mode, user: user, secret: secret)
   end
 
 end

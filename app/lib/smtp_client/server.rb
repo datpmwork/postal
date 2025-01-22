@@ -5,11 +5,15 @@ module SMTPClient
 
     attr_reader :hostname
     attr_reader :port
+    attr_reader :user
+    attr_reader :secret
     attr_accessor :ssl_mode
 
-    def initialize(hostname, port: 25, ssl_mode: SSLModes::AUTO)
+    def initialize(hostname, port: 25, ssl_mode: SSLModes::AUTO, user: nil, secret: nil)
       @hostname = hostname
       @port = port
+      @user = user
+      @secret = secret
       @ssl_mode = ssl_mode
     end
 
