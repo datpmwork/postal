@@ -53,6 +53,7 @@ module SMTPClient
     # @return [Net::SMTP]
     def start_smtp_session(source_ip_address: nil, allow_ssl: true)
       @smtp_client = Net::SMTP.new(@ip_address, @server.port)
+      @smtp_client.debug_output = $stderr
       @smtp_client.open_timeout = Postal::Config.smtp_client.open_timeout
       @smtp_client.read_timeout = Postal::Config.smtp_client.read_timeout
       @smtp_client.tls_hostname = @server.hostname
