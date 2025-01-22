@@ -65,6 +65,8 @@ class SMTPSender < BaseSender
 
     rcpt_to = determine_rcpt_to_for_message(message)
     logger.info "Sending message #{message.server.id}::#{message.id} to #{rcpt_to}"
+    logger.info "Mail FROM #{mail_from}"
+    logger.info "Raw Message #{raw_message}"
     send_message_to_smtp_client(raw_message, mail_from, rcpt_to)
   end
 
