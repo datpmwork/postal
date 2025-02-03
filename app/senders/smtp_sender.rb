@@ -141,8 +141,8 @@ class SMTPSender < BaseSender
   def determine_mail_from_for_message(message)
     return "" if message.bounce
 
-    if @current_endpoint.user
-      return @current_endpoint.user
+    if @current_endpoint.server.user
+      return @current_endpoint.server.user
     end
 
     # If the domain has a valid custom return path configured, return
