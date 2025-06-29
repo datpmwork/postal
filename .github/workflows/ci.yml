@@ -37,7 +37,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           target: ci
-          platforms: linux/amd64
+          platforms: linux/arm64/v8,linux/amd64
 
   test:
     name: Test Suite
@@ -103,7 +103,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           target: full
-          platforms: linux/amd64
+          platforms: linux/arm64/v8,linux/amd64
           build-args: |
             VERSION=${{ steps.info.outputs.version }}
             BRANCH=${{ steps.info.outputs.branch }}
@@ -133,4 +133,4 @@ jobs:
           target: full
           build-args: |
             VERSION=${{ needs.release-please.outputs.version }}
-          platforms: linux/amd64
+          platforms: linux/arm64/v8,linux/amd64
